@@ -5,12 +5,6 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
-
-{% include base_path %}
-
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+- Gang Chen, Siyuan Wu, <ins>Moji Shi</ins>, Wei Dong, Hai Zhu, and Javier Alonso-Mora (2022) <br>
+  [RAST: Risk-Aware Spatio-Temporal Safety Corridors for MAV Navigation in Dynamic Uncertain Environments](https://doi.org/10.1109/LRA.2022.3231832). <br>
+  *IEEE Robotics and Automation Letters*.
