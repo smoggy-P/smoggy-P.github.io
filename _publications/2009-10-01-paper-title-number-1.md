@@ -1,12 +1,12 @@
 ---
-title: "Paper Title Number 1"
+title: "RAST: Risk-Aware Spatio-Temporal Safety Corridors for MAV Navigation in Dynamic Uncertain Environments"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
+permalink: /publication/rast
 excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
+date: 2022-12-23
+venue: 'IEEE Robotics and Automation Letters'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+citation: 'G. Chen, S. Wu, *M. Shi*, W. Dong, H. Zhu and J. Alonso-Mora, "RAST: Risk-Aware Spatio-Temporal Safety Corridors for MAV Navigation in Dynamic Uncertain Environments," in IEEE Robotics and Automation Letters, doi: 10.1109/LRA.2022.3231832.'
 ---
 This paper is about the number 1. The number 2 is left for future work.
 
