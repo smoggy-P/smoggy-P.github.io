@@ -13,7 +13,7 @@ name                     : &name "Moji Shi"
 description              : &description "Master student of Robotics in TUDelft"
 url                      : https://smoggy-p.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "https://smoggy-p.github.io/"
+repository               : "smoggy-p.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : moji-shi-945b65208
+  linkedin         : "moji-shi-945b65208"
   orcid            : "https://orcid.org/0000-0003-1274-654X"
   pinterest        :
   soundcloud       :
