@@ -14,20 +14,19 @@ My current research interests focus on Motion planning in unknown dynamic enviro
 
 
 ## Experience
-
-![SJTU Logo](images/SJTU.png) **B.S in Mechanical Engineering**  
+<img src="images/SJTU.png" width="50"/> **B.S in Mechanical Engineering**  
 _2016-2020_ @ Shanghai Jiao Tong University  
 
-![KIT Logo](images/KIT.png) **Exchange in Mechanical Engineering**  
+<img src="images/KIT.png" width="50"/> **Exchange in Mechanical Engineering**  
 _2019_ @ Karlsruhe Institute of Technology  
 
-![SICCAS Logo](images/SICCAS.jpg) **RA in Computational Mechanics**  
+<img src="images/SICCAS.jpg" width="50"/> **RA in Computational Mechanics**  
 _2020-2021_ @ Shanghai Institute of Ceramics, Chinese Academy of Sciences  
 
-![TU Delft Logo](images/TUDELFT.png) **M.S in Robotics**  
+<img src="images/TUDELFT.png" width="50"/> **M.S in Robotics**  
 _2021-2023_ @ TU Delft  
 
-![Shanghai AI Lab Logo](images/shanghaiAI.png) **Intern in Robotics & Mechanical Design of Quadruped**  
+<img src="images/shanghaiAI.png" width="50"/> **Intern in Robotics & Mechanical Design of Quadruped**  
 _2023-_ @ Shanghai AI Lab  
 
 
