@@ -16,8 +16,8 @@ My current research interests focus on Motion planning in unknown dynamic enviro
 ## Experience
 <style>
 img {
-  width: 400px,
-  height: auto
+  width: auto,
+  height: 100px
 }
 </style>
 
