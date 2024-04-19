@@ -14,35 +14,30 @@ My current research interests focus on Motion planning in unknown dynamic enviro
 
 
 ## Experience
-<style>
-img {
-  width: auto,
-  height: 100px
-}
-</style>
 
 <table>
   <tr>
-    <td><img src="../images/SJTU.png" alt="SJTU Logo" class="img"/></td>
+    <td style="text-align: center; vertical-align: middle;"><img src="../images/SJTU.png" alt="SJTU Logo" height="50"/></td>
     <td><strong>B.S in Mechanical Engineering</strong><br/>2016-2020 @ Shanghai Jiao Tong University</td>
   </tr>
   <tr>
-    <td><img src="../images/KIT.png" alt="KIT Logo" class="img"/></td>
+    <td style="text-align: center; vertical-align: middle;"><img src="../images/KIT.png" alt="KIT Logo" height="50"/></td>
     <td><strong>Exchange in Mechanical Engineering</strong><br/>2019 @ Karlsruhe Institute of Technology</td>
   </tr>
   <tr>
-    <td><img src="../images/SICCAS.jpg" alt="SICCAS Logo" width="100"/></td>
+    <td style="text-align: center; vertical-align: middle;"><img src="../images/SICCAS.jpg" alt="SICCAS Logo" height="50"/></td>
     <td><strong>RA in Computational Mechanics</strong><br/>2020-2021 @ Shanghai Institute of Ceramics, Chinese Academy of Sciences</td>
   </tr>
   <tr>
-    <td><img src="../images/TUDELFT.png" alt="TU Delft Logo" width="100"/></td>
+    <td style="text-align: center; vertical-align: middle;"><img src="../images/TUDELFT.png" alt="TU Delft Logo" height="50"/></td>
     <td><strong>M.S in Robotics</strong><br/>2021-2023 @ TU Delft</td>
   </tr>
   <tr>
-    <td><img src="../images/shanghaiAI.png" alt="Shanghai AI Lab Logo" width="100"/></td>
+    <td style="text-align: center; vertical-align: middle;"><img src="../images/shanghaiAI.png" alt="Shanghai AI Lab Logo" height="50"/></td>
     <td><strong>Intern in Robotics & Mechanical Design of Quadruped</strong><br/>2023- @ Shanghai AI Lab</td>
   </tr>
 </table>
+
 
 
 
