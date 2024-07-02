@@ -5,6 +5,10 @@ permalink: /publications/
 author_profile: true
 ---
 
+- **Moji Shi**, Gang Chen, Álvaro Serra Gómez, Siyuan Wu, Javier Alonso-Mora (2024) <br>
+[Evaluating Dynamic Environment Difficulty for Obstacle Avoidance Benchmarking](https://arxiv.org/pdf/2404.14848). <br>
+*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*.
+
 - Siyuan Wu, Gang Chen, **Moji Shi**, Javier Alonso-Mora (2023) <br>
 [Decentralized Multi-Agent Trajectory Planning in Dynamic Environments with Occupancy Prediction](https://smoggy-p.github.io/Evaluating_Dynamic_Difficulty/). <br>
 *IEEE International Conference on Robotics and Automation (ICRA)*.
