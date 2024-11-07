@@ -82,13 +82,13 @@ analytics:
 author:
   name             : "Moji Shi"
   avatar           : "profile.png"
-  bio              : "Master student of Robotics"
+  bio              : "Ph.D. candidate in Robotics"
   location         : "Delft, Netherlands"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=NZ2lZY0AAAAJ&hl=zh-CN"
-  email            : m.shi-5@students.tudelft.nl
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  email            : m.shi@tudelft.nl
+  researchgate     : "https://www.researchgate.net/profile/Moji_Shi"
   uri              :
   bitbucket        :
   codepen          :
@@ -107,7 +107,7 @@ author:
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
+  steam            : "https://steamcommunity.com/id/smoggy-P/"
   tumblr           :
   twitter          : #"replacethistwitterhandle"
   vine             :
