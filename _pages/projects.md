@@ -22,12 +22,22 @@ graph, A* graph search algorithm, and optimizing time consumption for trajectory
 
 ---
 ## [Model predictive control for UAV collision avoidance](https://github.com/smoggy-P/MPC-Collision-Avoidance)
-- We designed a model predictive controller for UAV so that it can avoid obstacles.
-Specifically, we designed **terminal cost and terminal set** for cost function, added **observer** to
-predict unknown disturbance and strictly prove the **asymptotic stability** of the system.
-- My main contribution is setting up the dynamics of quadrotors, designing the luenberger observer and executing numerical experiments.
-- We achieved grade 9.5/10 for this course project, one of the top groups.
-  <img src="/images/mpc.gif" width="400" class="center"/>
+
+
+<table>
+<td>
+<ul>
+<li style="font-size:18px">We designed a model predictive controller for UAV so that it can avoid obstacles.
+Specifically, we designed <b>terminal cost and terminal set</b> for cost function, added <b>observer</b> to
+predict unknown disturbance and strictly prove the <b>asymptotic stability</b> of the system. </li>
+<li style="font-size:18px">My main contribution is setting up the dynamics of quadrotors, designing the luenberger observer and executing numerical experiments.</li>
+<li style="font-size:18px">We achieved grade 9.5/10 for this course project, one of the top groups.</li>
+</ul>
+</td>
+<td>
+<img src="/images/mpc.gif" width="600" class="center"/>
+</td>
+</table>
 
 ---
 ## Sensor fusion for pedestrian detection and tracking
