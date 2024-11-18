@@ -12,7 +12,6 @@ author_profile: true
 <li style="font-size:18px">We implemented <b>k-PRM</b> for front-end path searching and an iterative method for back-end corridor-based trajectory optimization. </li>
 <li style="font-size:18px">My main contribution is implementing adjacent-list
 graph, A* graph search algorithm, and optimizing time consumption for trajectory optimization method.</li>
-<li style="font-size:18px">We achieved grade 9.5/10 for this course project, one of the top groups.</li>
 </ul>
 </td>
 <td>
@@ -31,11 +30,10 @@ graph, A* graph search algorithm, and optimizing time consumption for trajectory
 Specifically, we designed <b>terminal cost and terminal set</b> for cost function, added <b>observer</b> to
 predict unknown disturbance and strictly prove the <b>asymptotic stability</b> of the system. </li>
 <li style="font-size:18px">My main contribution is setting up the dynamics of quadrotors, designing the luenberger observer and executing numerical experiments.</li>
-<li style="font-size:18px">We achieved grade 9.5/10 for this course project, one of the top groups.</li>
 </ul>
 </td>
 <td>
-<img src="/images/mpc.gif" width="600" class="center"/>
+<img src="/images/mpc.gif" width="800" class="center"/>
 </td>
 </table>
 
