@@ -8,17 +8,16 @@ author_profile: true
 ## [An implementation of k-PRM path planner with corridor-based trajectory optimization](https://github.com/edmundwsy/RO47005-PDM-Final)
 <table>
 <td>
-
-- We implemented **k-PRM** for front-end path searching and an iterative method for back-end
-corridor-based trajectory optimization. 
-- My main contribution is implementing adjacent-list
-graph, A* graph search algorithm, and optimizing time consumption for trajectory optimization method.
-- We achieved grade 9.5/10 for this course project, one of the top groups.
-
+<ul>
+<li>We implemented **k-PRM** for front-end path searching and an iterative method for back-end corridor-based trajectory optimization. </li>
+<li>My main contribution is implementing adjacent-list
+graph, A* graph search algorithm, and optimizing time consumption for trajectory optimization method.</li>
+<li>We achieved grade 9.5/10 for this course project, one of the top groups.</li>
+</ul>
 </td>
 <td>
 
-<img src="/images/kprm.gif" width="400" class="center"/>
+<img src="/images/kprm.gif" width="600" class="center"/>
 
 </td>
 </tr>
