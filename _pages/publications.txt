@@ -6,7 +6,7 @@ links:
     Project Page: https://smoggy-p.github.io/Evaluating_Dynamic_Difficulty/
     Paper: https://arxiv.org/pdf/2404.14848
     Code: https://github.com/smoggy-P/gym-Drone2D-ActivePerception
-Image: https://github.com/smoggy-P/gym-Drone2D-ActivePerception/blob/main/picture/example.gif
+Image: https://github.com/smoggy-P/gym-Drone2D-ActivePerception/raw/main/picture/example.gif
 
 Title: Decentralized Multi-Agent Trajectory Planning in Dynamic Environments with Occupancy Prediction
 Authors: Siyuan Wu, Gang Chen, <strong>Moji Shi</strong>, Javier Alonso-Mora
@@ -14,6 +14,7 @@ Year: 2023
 Conference: <em>IEEE International Conference on Robotics and Automation (ICRA)</em>
 links:
     Paper: https://arxiv.org/pdf/2404.15602
+    Code: https://github.com/siyuanwu99/pred-occ-planner
 Image: placeholder-image.jpg
 
 Title: Evaluating Dynamic Environment Difficulty for Collision Avoidance Benchmarking

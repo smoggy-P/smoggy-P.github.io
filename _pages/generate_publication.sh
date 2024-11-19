@@ -22,7 +22,7 @@ echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 echo '    <style>' >> $OUTPUT_FILE
 echo '        body { font-family: Arial, sans-serif; line-height: 1.6; }' >> $OUTPUT_FILE
 echo '        .publication { display: flex; align-items: flex-start; margin-bottom: 20px; }' >> $OUTPUT_FILE
-echo '        .text { flex: 3; margin-right: 20px; }' >> $OUTPUT_FILE
+echo '        .text { flex: 3; margin-right: 20px; font-size: 10}' >> $OUTPUT_FILE
 echo '        .image { flex: 1; text-align: center; }' >> $OUTPUT_FILE
 echo '        .image img { max-width: 100%; height: auto; }' >> $OUTPUT_FILE
 echo '        a { text-decoration: none; color: #007BFF; }' >> $OUTPUT_FILE
