@@ -15,17 +15,15 @@ Conference: <em>IEEE International Conference on Robotics and Automation (ICRA)<
 links:
     Paper: https://arxiv.org/pdf/2404.15602
     Code: https://github.com/siyuanwu99/pred-occ-planner
-Image: placeholder-image.jpg
+Image: https://siyuanwu99.github.io/assets/img/publication_preview/pred-occ-planner.gif
 
 Title: Evaluating Dynamic Environment Difficulty for Collision Avoidance Benchmarking
 Authors: <strong>Moji Shi</strong>, Gang Chen, Javier Alonso-Mora
 Year: 2023
 Conference: <em>Master Thesis</em> <font color="red">Cum Laude</font>
 links:
-    Project Page: https://smoggy-p.github.io/Evaluating_Dynamic_Difficulty/
-    ArXiv: https://smoggy-p.github.io/Evaluating_Dynamic_Difficulty/
-    Bibtex: https://smoggy-p.github.io/Evaluating_Dynamic_Difficulty/
-Image: placeholder-image.jpg
+    Paper: https://repository.tudelft.nl/islandora/object/uuid%3Aca95c8cb-8df3-4d43-9d17-c7b7f54eb1ea?collection=education
+Image: /images/metric.png
 
 Title: RAST: Risk-Aware Spatio-Temporal Safety Corridors for MAV Navigation in Dynamic Uncertain Environments
 Authors: Gang Chen, Siyuan Wu, <strong>Moji Shi</strong>, Wei Dong, Hai Zhu, and Javier Alonso-Mora
@@ -33,16 +31,13 @@ Year: 2022
 Conference: <em>IEEE Robotics and Automation Letters (RA-L)</em>
 links:
     Project Page: https://doi.org/10.1109/LRA.2022.3231832
-    ArXiv: https://doi.org/10.1109/LRA.2022.3231832
-    Bibtex: https://doi.org/10.1109/LRA.2022.3231832
-Image: placeholder-image.jpg
+    Code: https://github.com/g-ch/RAST_corridor_planning
+Image: https://siyuanwu99.github.io/assets/img/publication_preview/rast-43.gif
 
 Title: Ultralow Lattice Thermal Conductivity and Superhigh Thermoelectric Figure-of-Merit in (Mg, Bi) Co-Doped GeTe
 Authors: Tong Xing, Chenxi Zhu, Qingfeng Song, Hui Huang, Jie Xiao, Dudi Ren, <strong>Moji Shi</strong>, Pengfei Qiu, Xun Shi, Fangfang Xu, Lidong Chen
 Year: 2021
 Conference: <em>Advanced Materials</em>
 links:
-    Project Page: https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202008773
-    ArXiv: https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202008773
-    Bibtex: https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202008773
-Image: placeholder-image.jpg
+    Paper: https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.202008773
+Image: https://i-blog.csdnimg.cn/blog_migrate/8a4c9681e7347d6f6852407f71b882ed.png#pic_center
