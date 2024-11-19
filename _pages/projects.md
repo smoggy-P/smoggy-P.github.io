@@ -2,7 +2,7 @@
 layout: archive
 title: "Projects"
 permalink: /projects/
-author_profile: false
+author_profile: true
 ---
 ---
 ## [An implementation of k-PRM path planner with corridor-based trajectory optimization](https://github.com/edmundwsy/RO47005-PDM-Final)
