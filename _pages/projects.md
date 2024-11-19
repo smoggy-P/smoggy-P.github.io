@@ -46,8 +46,6 @@ predict unknown disturbance and strictly prove the <b>asymptotic stability</b> o
 <li style="font-size:18px">I designed two methods for pedestrian detection and tracking using monocular camera and using the fusion between LiDAR and stereo camera.  </li>
 <li style="font-size:18px">In the method of monocular camera, I make some assumptions about the relative position between camera and ground, generate 3D region proposals accordingly, and apply a pre-trained pedestrian classifier to identify pedestrians. In the method of sensor fusion, I apply DBSCAN clustering to the point cloud to give more accurate region proposals and then apply a pedestrian classifier here.</li>
 </ul>
-</td>
-<td>
 <td><img src="/images/fusion.gif" border=0></td>
 <td><img src="/images/fusion+bird.gif" border=0></td>
 </td>
