@@ -30,32 +30,42 @@ table, tr, td {
 
 <h2>My Friends and Robot Friends</h2>
 <style>
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+.gallery-wrapper {
+    position: relative;
     margin-top: 18px;
     margin-bottom: 30px;
 }
+.gallery-container {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    gap: 24px;
+    padding: 10px 0;
+}
 .gallery-item {
-    flex: 1 1 220px;
-    max-width: 260px;
-    min-width: 180px;
+    flex: 0 0 100%;
+    max-width: 100%;
     background: #f8f8fb;
     border-radius: 12px;
-    padding: 16px 10px 10px 10px;
+    padding: 24px 20px 20px 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     text-align: center;
-    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
 }
 .gallery-item img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 450px;
     object-fit: contain;
     border-radius: 10px;
     background: #fff;
     border: 1px solid #eee;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 .gallery-item .caption {
     font-size: 15px;
@@ -68,32 +78,209 @@ table, tr, td {
     font-size: 13px;
     color: #666;
 }
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-size: 18px;
+    color: #333;
+}
+.gallery-nav:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.gallery-nav.prev {
+    left: 10px;
+}
+.gallery-nav.next {
+    right: 10px;
+}
+.gallery-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.gallery-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+.gallery-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+.gallery-indicator.active {
+    background: #666;
+    width: 24px;
+    border-radius: 5px;
+}
 @media (max-width: 700px) {
-    .gallery-container {
-        flex-direction: column;
-        gap: 14px;
+    .gallery-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    .gallery-nav.prev {
+        left: 5px;
+    }
+    .gallery-nav.next {
+        right: 5px;
     }
     .gallery-item {
+        min-height: 400px;
+        padding: 20px 15px 15px 15px;
+    }
+    .gallery-item img {
         max-width: 100%;
-        min-width: 140px;
+        max-height: 350px;
     }
 }
 </style>
 
-<div class="gallery-container">
-  <div class="gallery-item">
-    <img src="/images/robot_h1.jpg" alt="Humanoid Robot"/>
-    <div class="caption">Working with <a href="https://renjunli99.github.io/">Junli Ren</a>, <a href="https://junfeng-long.github.io/">Junfeng Long</a>, and Unitree H1</div>
+<div class="gallery-wrapper">
+  <button class="gallery-nav prev" aria-label="Previous">‹</button>
+  <div class="gallery-container" id="galleryContainer">
+    <div class="gallery-item">
+      <img src="/images/robot_h1.jpg" alt="Humanoid Robot"/>
+      <div class="caption">Working with <a href="https://renjunli99.github.io/">Junli Ren</a>, <a href="https://junfeng-long.github.io/">Junfeng Long</a>, and Unitree H1</div>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/robot_lynel.jpg" alt="Custom Robot"/>
+      <div class="caption">Working with <a href="https://g-ch.github.io/">Gang Chen</a> and our custom robot Golden Lynel</div>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/robot_nocrash.jpg" alt="Flying Robot"/>
+      <div class="caption">Working with <a href="https://scholar.google.com/citations?user=R9YCm8EAAAAJ&hl=zh-CN&oi=sra">Hang Yu</a> and our flying robot NoCrash</div>
+    </div>
   </div>
-  <div class="gallery-item">
-    <img src="/images/robot_lynel.jpg" alt="Custom Robot"/>
-    <div class="caption">Working with <a href="https://g-ch.github.io/">Gang Chen</a> and our custom robot Golden Lynel</div>
-  </div>
-  <div class="gallery-item">
-    <img src="/images/robot_nocrash.jpg" alt="Flying Robot"/>
-    <div class="caption">Working with <a href="https://scholar.google.com/citations?user=R9YCm8EAAAAJ&hl=zh-CN&oi=sra">Hang Yu</a> and our flying robot NoCrash</div>
-  </div>
+  <button class="gallery-nav next" aria-label="Next">›</button>
+  <div class="gallery-indicators" id="galleryIndicators"></div>
 </div>
+
+<script>
+(function() {
+    const container = document.getElementById('galleryContainer');
+    const prevBtn = document.querySelector('.gallery-nav.prev');
+    const nextBtn = document.querySelector('.gallery-nav.next');
+    const indicatorsContainer = document.getElementById('galleryIndicators');
+    const items = container.querySelectorAll('.gallery-item');
+    let currentIndex = 0;
+    let autoScrollInterval = null;
+    const scrollDuration = 3000; // 3秒自动切换
+
+    // 创建指示器
+    items.forEach((_, index) => {
+        const indicator = document.createElement('button');
+        indicator.className = 'gallery-indicator' + (index === 0 ? ' active' : '');
+        indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+    });
+
+    const indicators = indicatorsContainer.querySelectorAll('.gallery-indicator');
+
+    function updateIndicators() {
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        const scrollPosition = currentIndex * container.offsetWidth;
+        container.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+        updateIndicators();
+        updateNavButtons();
+    }
+
+    function updateNavButtons() {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === items.length - 1;
+    }
+
+    function nextSlide() {
+        if (currentIndex < items.length - 1) {
+            goToSlide(currentIndex + 1);
+        } else {
+            goToSlide(0); // 循环到第一张
+        }
+    }
+
+    function prevSlide() {
+        if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        } else {
+            goToSlide(items.length - 1); // 循环到最后一张
+        }
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(nextSlide, scrollDuration);
+    }
+
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
+    // 导航按钮事件
+    nextBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        nextSlide();
+        startAutoScroll();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        prevSlide();
+        startAutoScroll();
+    });
+
+    // 鼠标悬停时暂停自动滚动
+    const wrapper = container.closest('.gallery-wrapper');
+    wrapper.addEventListener('mouseenter', stopAutoScroll);
+    wrapper.addEventListener('mouseleave', startAutoScroll);
+
+    // 监听滚动事件更新当前索引
+    container.addEventListener('scroll', () => {
+        const scrollPosition = container.scrollLeft;
+        const itemWidth = container.offsetWidth;
+        const newIndex = Math.round(scrollPosition / itemWidth);
+        if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateIndicators();
+            updateNavButtons();
+        }
+    });
+
+    // 初始化
+    updateNavButtons();
+    startAutoScroll();
+})();
+</script>
 
 
 
