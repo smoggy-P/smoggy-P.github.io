@@ -152,7 +152,7 @@ table, tr, td {
 </style>
 
 <div class="gallery-wrapper">
-  <button class="gallery-nav prev" aria-label="Previous">‹</button>
+  <button class="gallery-nav prev" aria-label="Previous"><</button>
   <div class="gallery-container" id="galleryContainer">
     <div class="gallery-item">
       <img src="/images/robot_h1.jpg" alt="Humanoid Robot"/>
@@ -167,7 +167,7 @@ table, tr, td {
       <div class="caption">Working with <a href="https://scholar.google.com/citations?user=R9YCm8EAAAAJ&hl=zh-CN&oi=sra">Hang Yu</a> and our flying robot NoCrash</div>
     </div>
   </div>
-  <button class="gallery-nav next" aria-label="Next">›</button>
+  <button class="gallery-nav next" aria-label="Next">></button>
   <div class="gallery-indicators" id="galleryIndicators"></div>
 </div>
 
@@ -180,7 +180,6 @@ table, tr, td {
         var nextBtn = document.querySelector('.gallery-nav.next');
         var indicatorsContainer = document.getElementById('galleryIndicators');
         
-        // 检查元素是否存在
         if (!container || !prevBtn || !nextBtn || !indicatorsContainer) {
             return;
         }
@@ -192,9 +191,8 @@ table, tr, td {
         
         var galleryCurrentIndex = 0;
         var galleryAutoScrollInterval = null;
-        var scrollDuration = 3000; // 3秒自动切换
+        var scrollDuration = 3000; 
 
-        // 创建指示器
         for (var i = 0; i < items.length; i++) {
             var indicator = document.createElement('button');
             indicator.className = 'gallery-indicator' + (i === 0 ? ' active' : '');
@@ -236,14 +234,13 @@ table, tr, td {
         }
 
         function updateNavButtons() {
-            // 允许循环，所以不禁用按钮
         }
 
         function nextSlide() {
             if (galleryCurrentIndex < items.length - 1) {
                 goToSlide(galleryCurrentIndex + 1);
             } else {
-                goToSlide(0); // 循环到第一张
+                goToSlide(0); 
             }
         }
 
@@ -251,7 +248,7 @@ table, tr, td {
             if (galleryCurrentIndex > 0) {
                 goToSlide(galleryCurrentIndex - 1);
             } else {
-                goToSlide(items.length - 1); // 循环到最后一张
+                goToSlide(items.length - 1);
             }
         }
 
@@ -267,7 +264,6 @@ table, tr, td {
             }
         }
 
-        // 导航按钮事件
         nextBtn.addEventListener('click', function() {
             stopAutoScroll();
             nextSlide();
@@ -280,7 +276,6 @@ table, tr, td {
             startAutoScroll();
         });
 
-        // 鼠标悬停时暂停自动滚动
         var wrapper = container.parentElement;
         while (wrapper && !wrapper.classList.contains('gallery-wrapper')) {
             wrapper = wrapper.parentElement;
@@ -290,7 +285,6 @@ table, tr, td {
             wrapper.addEventListener('mouseleave', startAutoScroll);
         }
 
-        // 监听滚动事件更新当前索引
         container.addEventListener('scroll', function() {
             var scrollPosition = container.scrollLeft;
             var itemWidth = container.offsetWidth;
@@ -302,19 +296,15 @@ table, tr, td {
             }
         });
 
-        // 初始化
         updateNavButtons();
-        // 延迟启动自动滚动，确保页面完全加载
         setTimeout(function() {
             startAutoScroll();
         }, 500);
     }
 
-    // 确保DOM加载完成后再执行
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initGallery);
     } else {
-        // DOM已经加载完成
         initGallery();
     }
 })();
