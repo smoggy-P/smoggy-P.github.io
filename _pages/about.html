@@ -173,80 +173,83 @@ table, tr, td {
 
 <script>
 (function() {
+    'use strict';
     function initGallery() {
-        const container = document.getElementById('galleryContainer');
-        const prevBtn = document.querySelector('.gallery-nav.prev');
-        const nextBtn = document.querySelector('.gallery-nav.next');
-        const indicatorsContainer = document.getElementById('galleryIndicators');
+        var container = document.getElementById('galleryContainer');
+        var prevBtn = document.querySelector('.gallery-nav.prev');
+        var nextBtn = document.querySelector('.gallery-nav.next');
+        var indicatorsContainer = document.getElementById('galleryIndicators');
         
         // 检查元素是否存在
         if (!container || !prevBtn || !nextBtn || !indicatorsContainer) {
-            console.error('Gallery elements not found');
             return;
         }
         
-        const items = container.querySelectorAll('.gallery-item');
+        var items = container.querySelectorAll('.gallery-item');
         if (items.length === 0) {
-            console.error('No gallery items found');
             return;
         }
         
-        let currentIndex = 0;
-        let autoScrollInterval = null;
-        const scrollDuration = 3000; // 3秒自动切换
+        var galleryCurrentIndex = 0;
+        var galleryAutoScrollInterval = null;
+        var scrollDuration = 3000; // 3秒自动切换
 
         // 创建指示器
-        items.forEach((_, index) => {
-            const indicator = document.createElement('button');
-            indicator.className = 'gallery-indicator' + (index === 0 ? ' active' : '');
-            indicator.setAttribute('aria-label', 'Go to slide ' + (index + 1));
-            indicator.addEventListener('click', function() {
-                goToSlide(index);
-            });
+        for (var i = 0; i < items.length; i++) {
+            var indicator = document.createElement('button');
+            indicator.className = 'gallery-indicator' + (i === 0 ? ' active' : '');
+            indicator.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            (function(index) {
+                indicator.addEventListener('click', function() {
+                    goToSlide(index);
+                });
+            })(i);
             indicatorsContainer.appendChild(indicator);
-        });
+        }
 
-        const indicators = indicatorsContainer.querySelectorAll('.gallery-indicator');
+        var indicators = indicatorsContainer.querySelectorAll('.gallery-indicator');
 
         function updateIndicators() {
-            indicators.forEach(function(indicator, index) {
-                if (index === currentIndex) {
-                    indicator.classList.add('active');
+            for (var idx = 0; idx < indicators.length; idx++) {
+                if (idx === galleryCurrentIndex) {
+                    indicators[idx].classList.add('active');
                 } else {
-                    indicator.classList.remove('active');
+                    indicators[idx].classList.remove('active');
                 }
-            });
+            }
         }
 
         function goToSlide(index) {
             if (index < 0 || index >= items.length) return;
-            currentIndex = index;
-            const scrollPosition = currentIndex * container.offsetWidth;
-            container.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-            });
+            galleryCurrentIndex = index;
+            var scrollPosition = galleryCurrentIndex * container.offsetWidth;
+            if (container.scrollTo) {
+                container.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                container.scrollLeft = scrollPosition;
+            }
             updateIndicators();
             updateNavButtons();
         }
 
         function updateNavButtons() {
             // 允许循环，所以不禁用按钮
-            // prevBtn.disabled = currentIndex === 0;
-            // nextBtn.disabled = currentIndex === items.length - 1;
         }
 
         function nextSlide() {
-            if (currentIndex < items.length - 1) {
-                goToSlide(currentIndex + 1);
+            if (galleryCurrentIndex < items.length - 1) {
+                goToSlide(galleryCurrentIndex + 1);
             } else {
                 goToSlide(0); // 循环到第一张
             }
         }
 
         function prevSlide() {
-            if (currentIndex > 0) {
-                goToSlide(currentIndex - 1);
+            if (galleryCurrentIndex > 0) {
+                goToSlide(galleryCurrentIndex - 1);
             } else {
                 goToSlide(items.length - 1); // 循环到最后一张
             }
@@ -254,13 +257,13 @@ table, tr, td {
 
         function startAutoScroll() {
             stopAutoScroll();
-            autoScrollInterval = setInterval(nextSlide, scrollDuration);
+            galleryAutoScrollInterval = setInterval(nextSlide, scrollDuration);
         }
 
         function stopAutoScroll() {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = null;
+            if (galleryAutoScrollInterval) {
+                clearInterval(galleryAutoScrollInterval);
+                galleryAutoScrollInterval = null;
             }
         }
 
@@ -278,7 +281,10 @@ table, tr, td {
         });
 
         // 鼠标悬停时暂停自动滚动
-        const wrapper = container.closest('.gallery-wrapper');
+        var wrapper = container.parentElement;
+        while (wrapper && !wrapper.classList.contains('gallery-wrapper')) {
+            wrapper = wrapper.parentElement;
+        }
         if (wrapper) {
             wrapper.addEventListener('mouseenter', stopAutoScroll);
             wrapper.addEventListener('mouseleave', startAutoScroll);
@@ -286,11 +292,11 @@ table, tr, td {
 
         // 监听滚动事件更新当前索引
         container.addEventListener('scroll', function() {
-            const scrollPosition = container.scrollLeft;
-            const itemWidth = container.offsetWidth;
-            const newIndex = Math.round(scrollPosition / itemWidth);
-            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
-                currentIndex = newIndex;
+            var scrollPosition = container.scrollLeft;
+            var itemWidth = container.offsetWidth;
+            var newIndex = Math.round(scrollPosition / itemWidth);
+            if (newIndex !== galleryCurrentIndex && newIndex >= 0 && newIndex < items.length) {
+                galleryCurrentIndex = newIndex;
                 updateIndicators();
                 updateNavButtons();
             }
