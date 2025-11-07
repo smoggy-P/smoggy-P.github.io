@@ -107,10 +107,6 @@ table, tr, td {
 .gallery-nav.next {
     right: 10px;
 }
-.gallery-nav:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
 .gallery-indicators {
     display: flex;
     justify-content: center;
@@ -177,108 +173,144 @@ table, tr, td {
 
 <script>
 (function() {
-    const container = document.getElementById('galleryContainer');
-    const prevBtn = document.querySelector('.gallery-nav.prev');
-    const nextBtn = document.querySelector('.gallery-nav.next');
-    const indicatorsContainer = document.getElementById('galleryIndicators');
-    const items = container.querySelectorAll('.gallery-item');
-    let currentIndex = 0;
-    let autoScrollInterval = null;
-    const scrollDuration = 3000; // 3秒自动切换
+    function initGallery() {
+        const container = document.getElementById('galleryContainer');
+        const prevBtn = document.querySelector('.gallery-nav.prev');
+        const nextBtn = document.querySelector('.gallery-nav.next');
+        const indicatorsContainer = document.getElementById('galleryIndicators');
+        
+        // 检查元素是否存在
+        if (!container || !prevBtn || !nextBtn || !indicatorsContainer) {
+            console.error('Gallery elements not found');
+            return;
+        }
+        
+        const items = container.querySelectorAll('.gallery-item');
+        if (items.length === 0) {
+            console.error('No gallery items found');
+            return;
+        }
+        
+        let currentIndex = 0;
+        let autoScrollInterval = null;
+        const scrollDuration = 3000; // 3秒自动切换
 
-    // 创建指示器
-    items.forEach((_, index) => {
-        const indicator = document.createElement('button');
-        indicator.className = 'gallery-indicator' + (index === 0 ? ' active' : '');
-        indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        indicator.addEventListener('click', () => goToSlide(index));
-        indicatorsContainer.appendChild(indicator);
-    });
-
-    const indicators = indicatorsContainer.querySelectorAll('.gallery-indicator');
-
-    function updateIndicators() {
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
+        // 创建指示器
+        items.forEach((_, index) => {
+            const indicator = document.createElement('button');
+            indicator.className = 'gallery-indicator' + (index === 0 ? ' active' : '');
+            indicator.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+            indicator.addEventListener('click', function() {
+                goToSlide(index);
+            });
+            indicatorsContainer.appendChild(indicator);
         });
-    }
 
-    function goToSlide(index) {
-        currentIndex = index;
-        const scrollPosition = currentIndex * container.offsetWidth;
-        container.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
-        updateIndicators();
-        updateNavButtons();
-    }
+        const indicators = indicatorsContainer.querySelectorAll('.gallery-indicator');
 
-    function updateNavButtons() {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === items.length - 1;
-    }
-
-    function nextSlide() {
-        if (currentIndex < items.length - 1) {
-            goToSlide(currentIndex + 1);
-        } else {
-            goToSlide(0); // 循环到第一张
+        function updateIndicators() {
+            indicators.forEach(function(indicator, index) {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
         }
-    }
 
-    function prevSlide() {
-        if (currentIndex > 0) {
-            goToSlide(currentIndex - 1);
-        } else {
-            goToSlide(items.length - 1); // 循环到最后一张
-        }
-    }
-
-    function startAutoScroll() {
-        autoScrollInterval = setInterval(nextSlide, scrollDuration);
-    }
-
-    function stopAutoScroll() {
-        if (autoScrollInterval) {
-            clearInterval(autoScrollInterval);
-            autoScrollInterval = null;
-        }
-    }
-
-    // 导航按钮事件
-    nextBtn.addEventListener('click', () => {
-        stopAutoScroll();
-        nextSlide();
-        startAutoScroll();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        stopAutoScroll();
-        prevSlide();
-        startAutoScroll();
-    });
-
-    // 鼠标悬停时暂停自动滚动
-    const wrapper = container.closest('.gallery-wrapper');
-    wrapper.addEventListener('mouseenter', stopAutoScroll);
-    wrapper.addEventListener('mouseleave', startAutoScroll);
-
-    // 监听滚动事件更新当前索引
-    container.addEventListener('scroll', () => {
-        const scrollPosition = container.scrollLeft;
-        const itemWidth = container.offsetWidth;
-        const newIndex = Math.round(scrollPosition / itemWidth);
-        if (newIndex !== currentIndex) {
-            currentIndex = newIndex;
+        function goToSlide(index) {
+            if (index < 0 || index >= items.length) return;
+            currentIndex = index;
+            const scrollPosition = currentIndex * container.offsetWidth;
+            container.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
             updateIndicators();
             updateNavButtons();
         }
-    });
 
-    // 初始化
-    updateNavButtons();
-    startAutoScroll();
+        function updateNavButtons() {
+            // 允许循环，所以不禁用按钮
+            // prevBtn.disabled = currentIndex === 0;
+            // nextBtn.disabled = currentIndex === items.length - 1;
+        }
+
+        function nextSlide() {
+            if (currentIndex < items.length - 1) {
+                goToSlide(currentIndex + 1);
+            } else {
+                goToSlide(0); // 循环到第一张
+            }
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                goToSlide(currentIndex - 1);
+            } else {
+                goToSlide(items.length - 1); // 循环到最后一张
+            }
+        }
+
+        function startAutoScroll() {
+            stopAutoScroll();
+            autoScrollInterval = setInterval(nextSlide, scrollDuration);
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+        }
+
+        // 导航按钮事件
+        nextBtn.addEventListener('click', function() {
+            stopAutoScroll();
+            nextSlide();
+            startAutoScroll();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            stopAutoScroll();
+            prevSlide();
+            startAutoScroll();
+        });
+
+        // 鼠标悬停时暂停自动滚动
+        const wrapper = container.closest('.gallery-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', stopAutoScroll);
+            wrapper.addEventListener('mouseleave', startAutoScroll);
+        }
+
+        // 监听滚动事件更新当前索引
+        container.addEventListener('scroll', function() {
+            const scrollPosition = container.scrollLeft;
+            const itemWidth = container.offsetWidth;
+            const newIndex = Math.round(scrollPosition / itemWidth);
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
+                currentIndex = newIndex;
+                updateIndicators();
+                updateNavButtons();
+            }
+        });
+
+        // 初始化
+        updateNavButtons();
+        // 延迟启动自动滚动，确保页面完全加载
+        setTimeout(function() {
+            startAutoScroll();
+        }, 500);
+    }
+
+    // 确保DOM加载完成后再执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGallery);
+    } else {
+        // DOM已经加载完成
+        initGallery();
+    }
 })();
 </script>
 
